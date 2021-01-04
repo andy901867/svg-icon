@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/andy901867/svg-icon/issues"
   },
-  "homepage": "https://github.com/andy901867/svg-icon#readme"
+  "homepage": "https://github.com/andy901867/svg-icon#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
 }
