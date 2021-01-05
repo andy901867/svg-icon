@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/andy901867/svg-icon#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "mongodb": "^3.6.3"
   }
 }

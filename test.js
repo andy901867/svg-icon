@@ -1,6 +1,8 @@
+require('dotenv').config(); //dotenv套件使用.env還境變數
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = "mongodb+srv://admin:andy798978@cluster0.pkruc.mongodb.net/SVGICONS?retryWrites=true&w=majority";
+const uri = process.env["MONGO_CONNECTION_STRING"];
+console.log(uri)
 const client = new MongoClient(uri,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect((err,db) => {

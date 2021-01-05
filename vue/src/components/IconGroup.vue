@@ -51,7 +51,7 @@ export default {
         checkedIcons(){
             let selectedIcon = {
                 categoryId:this.category.categoryId,
-                icons: this.checkedIcons
+                icons: this.icons.filter(icon=>{return this.checkedIcons.includes(icon.iconId)})
             }
             this.$emit('selectIcons',selectedIcon);
         }
