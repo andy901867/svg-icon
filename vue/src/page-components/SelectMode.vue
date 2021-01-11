@@ -39,26 +39,28 @@ export default {
                 {
                     categoryId: "id1",
                     categoryName: "Bootstrap",
+                    path:"/icons.svg",
                     icons:[
-                        {iconId:'id1',iconName: 'iconName'},
-                        {iconId:'id2',iconName: 'iconName'},
-                        {iconId:'id3',iconName: 'iconName'},
-                        {iconId:'id4',iconName: 'iconName'},
-                        {iconId:'id5',iconName: 'iconName'},
-                        {iconId:'id6',iconName: 'iconName'},
-                        {iconId:'id7',iconName: 'iconName'}
+                        {iconId:'id1',iconName: 'alarm-fill'},
+                        {iconId:'id2',iconName: 'alarm'},
+                        {iconId:'id3',iconName: 'align-bottom'},
+                        {iconId:'id4',iconName: 'align-center'},
+                        {iconId:'id5',iconName: 'align-end'},
+                        {iconId:'id6',iconName: 'align-middle'},
+                        {iconId:'id7',iconName: 'align-start'}
                     ]
                 },
                 {
                     categoryId: "id2",
                     categoryName: "Font Awesome",
+                    path:"/icons.svg",
                     icons:[
-                        {iconId:'id1',iconName: 'iconName'},
-                        {iconId:'id2',iconName: 'iconName'},
-                        {iconId:'id3',iconName: 'iconName'},
-                        {iconId:'id4',iconName: 'iconName'},
-                        {iconId:'id5',iconName: 'iconName'},
-                        {iconId:'id6',iconName: 'iconName'}
+                        {iconId:'id1',iconName: 'alarm'},
+                        {iconId:'id2',iconName: 'alarm'},
+                        {iconId:'id3',iconName: 'alarm'},
+                        {iconId:'id4',iconName: 'alarm'},
+                        {iconId:'id5',iconName: 'alarm'},
+                        {iconId:'id6',iconName: 'alarm'}
                     ]
                 }
             ];

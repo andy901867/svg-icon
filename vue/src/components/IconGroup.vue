@@ -10,9 +10,10 @@
                     <input type="checkbox" :value="icon.iconId" v-model="checkedIcons">
                     <div class="icon_selector_style d-flex flex-column align-items-center px-1 py-3">
                         <svg width="32" height="32" fill="currentColor">
-                            <use xlink:href="/icons.svg#backspace-fill"/>
+                            <!-- <use v-bind:xlink:href="/icons.svg#backspace-fill"/> -->
+                            <use v-bind:xlink:href="category.path+'#'+icon.iconName"/>
                         </svg>
-                        <span class="fz13">Icon Name</span>
+                        <span class="fz13">{{icon.iconName}}</span>
                     </div>
                 </label>
             </div>
@@ -51,6 +52,8 @@ export default {
         checkedIcons(){
             let selectedIcon = {
                 categoryId:this.category.categoryId,
+                categoryName: this.category.categoryName,
+                path:this.category.path,
                 icons: this.icons.filter(icon=>{return this.checkedIcons.includes(icon.iconId)})
             }
             this.$emit('selectIcons',selectedIcon);

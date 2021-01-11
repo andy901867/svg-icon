@@ -20,23 +20,53 @@ export default {
   name: 'App',
   data(){
     return{
-      totalSelectedIcons:{}
+      totalSelectedIcons:[]
     }
   },
   computed:{
     totalSelectedIconsCount(){
       var count = 0;
-      for(var i in this.totalSelectedIcons){
-        count+= this.totalSelectedIcons[i].length;
-      }
+      this.totalSelectedIcons.forEach((item)=>{
+        count+=item.icons.length;
+      })
       return count;
     }
   },
   methods: {
     requireSelectedIcons(data){
-      this.$set(this.totalSelectedIcons,data.categoryId,data.icons);
+      var isCategoryRepeat = false;
+      this.totalSelectedIcons.forEach((category)=>{
+        if(category.categoryId === data.categoryId){
+          // category.icons = data.icons;
+          // data.icons.forEach((icon)=>{
+
+          // });
+          var newSelectIcons = JSON.parse(JSON.stringify(data.icons));
+          var originIconIds = category.icons.map((icon)=>{return icon.iconId});
+          newSelectIcons.forEach((newSelectIcon)=>{
+            var indexInOrigin = originIconIds.indexOf(newSelectIcon.iconId);
+            if(indexInOrigin>=0){
+              newSelectIcon = category.icons[indexInOrigin];
+            }
+            else{
+              newSelectIcon.userIconName = newSelectIcon.iconName;
+            }
+          });
+          category.icons = newSelectIcons;
+          isCategoryRepeat = true;
+        }
+      });
+      if(isCategoryRepeat === false){
+        var datas = JSON.parse(JSON.stringify(data));
+        datas.forEach((category)=>{
+          category.icons.forEach((icon)=>{
+            icon.userIconName = icon.iconName;
+          })
+        })
+        this.totalSelectedIcons.push(datas);
+      }
     }
-  },
+  }
 }
 </script>
 
