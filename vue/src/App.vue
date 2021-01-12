@@ -37,31 +37,25 @@ export default {
       var isCategoryRepeat = false;
       this.totalSelectedIcons.forEach((category)=>{
         if(category.categoryId === data.categoryId){
-          // category.icons = data.icons;
-          // data.icons.forEach((icon)=>{
-
-          // });
           var newSelectIcons = JSON.parse(JSON.stringify(data.icons));
           var originIconIds = category.icons.map((icon)=>{return icon.iconId});
-          newSelectIcons.forEach((newSelectIcon)=>{
+          newSelectIcons.forEach((newSelectIcon,index)=>{
             var indexInOrigin = originIconIds.indexOf(newSelectIcon.iconId);
             if(indexInOrigin>=0){
-              newSelectIcon = category.icons[indexInOrigin];
+              newSelectIcons[index] = category.icons[indexInOrigin];
             }
             else{
               newSelectIcon.userIconName = newSelectIcon.iconName;
-            }
-          });
+            }            
+          });  
           category.icons = newSelectIcons;
           isCategoryRepeat = true;
         }
       });
       if(isCategoryRepeat === false){
         var datas = JSON.parse(JSON.stringify(data));
-        datas.forEach((category)=>{
-          category.icons.forEach((icon)=>{
+        datas.icons.forEach((icon)=>{
             icon.userIconName = icon.iconName;
-          })
         })
         this.totalSelectedIcons.push(datas);
       }
